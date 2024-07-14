@@ -106,3 +106,12 @@ function checkNumber(number) {
   // Example usage
   compareNumbers(7, 3);
   
+  function checkNumber(number) {
+    const result = number >= 0 ? "Positive" : "Negative";
+    console.log(`The number is ${result}.`);
+  }
+  
+  // Example usage:
+  checkNumber(5); // Output: The number is Positive.
+  checkNumber(-3); // Output: The number is Negative.
+  
