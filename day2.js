@@ -115,3 +115,4 @@ function checkNumber(number) {
   checkNumber(5); // Output: The number is Positive.
   checkNumber(-3); // Output: The number is Negative.
   
+  
