@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Content</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        .highlight-border {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body class="back">
+    <button onclick="changeBack()">change color</button>
+    <p id="myParagraph">This is the original text.</p>
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="appendDiv()">Add New Div</button>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button onclick="addListItem()">Add List Item</button>
+    <div id="myElement">This is an element to be removed.</div>
+    <button onclick="removeElement()">Remove Element</button>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button onclick="removeLastChild()">Remove Last Child</button>
+    <img id="myImage" src="../gsap/bubbles-bg.png" alt="Old Image">
+    <button onclick="changeImage()">Change Image</button>
+    <p id="myParagraph">This is a paragraph.</p>
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="removeClass()">Remove Class</button>
+    <p id="myParagraph">This is the original text.</p>
+    <div id="myElement" style="width: 200px; height: 100px; border: 2px solid black;">
+        Hover over this element
+    </div>
+    <button id="myButton">Change Text</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("myParagraph").textContent="Jai Sri Ram";
+        }
+        function appendDiv() {
+            // Create a new div element
+            const newDiv = document.createElement("div");
+            // Add text content to the new div
+            newDiv.textContent = "This is a new div element!";
+            // Append the new div to the body
+            document.body.appendChild(newDiv);
+        }
+        function changeBack(){
+            const elements = document.getElementsByClassName("back");
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.backgroundColor = "lightblue";
+            }
+        }
+        function addListItem() {
+            // Create a new li element
+            const newListItem = document.createElement("li");
+            // Add text content to the new li
+            newListItem.textContent = "New Item";
+            // Append the new li to the ul
+            document.getElementById("myList").appendChild(newListItem);
+        }
+        function removeElement() {
+            const element = document.getElementById('myElement');
+            if (element) {
+                element.remove();
+            }
+        }
+        function removeLastChild() {
+            const list = document.getElementById('myList');
+            if (list.lastChild) {
+                list.removeChild(list.lastChild);
+            }
+        }
+        function changeImage() {
+            const image = document.getElementById('myImage');
+            image.setAttribute('src', '../projects1/vikas.jpg');
+        }
+        function addClass() {
+            const element = document.getElementById('myParagraph');
+            element.classList.add('highlight');
+        }
+
+        function removeClass() {
+            const element = document.getElementById('myParagraph');
+            element.classList.remove('highlight');
+        }
+        document.getElementById('myButton').addEventListener('click', function() {
+            const paragraph = document.getElementById('myParagraph');
+            paragraph.textContent = 'This is the new text!';
+        });
+        const element = document.getElementById('myElement');
+
+        element.addEventListener('mouseover', function() {
+            element.classList.add('highlight-border');
+        });
+
+        element.addEventListener('mouseout', function() {
+            element.classList.remove('highlight-border');
+        });
+    </script>
+</body>
+</html>
