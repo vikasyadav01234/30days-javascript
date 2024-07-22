@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Paragraph Text</title>
+    <style>
+        #myImage {
+            display: block;
+        }
+        #myElement {
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+    <p id="myParagraph">This is the original text.</p>
+    <img id="myImage" src="../projects1/vikas.jpg" alt="Sample Image" width="300">
+    <input type="text" id="myInput" placeholder="Type something...">
+    <div id="myElement">Hover over me!</div>
+    <input type="text" id="myInput1" placeholder="Type something...">
+    <input type="text" id="myInput2" placeholder="Type something...">
+    <p id="displayParagraph">Current value: </p>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Select the button and paragraph elements
+        const button = document.getElementById('myButton');
+        const paragraph = document.getElementById('myParagraph');
+
+        // Add a click event listener to the button
+        button.addEventListener('click', () => {
+            // Change the text content of the paragraph
+            paragraph.textContent = 'The text has been changed!';
+        });
+        // Select the image element
+        const image = document.getElementById('myImage');
+
+        // Add a double-click event listener to the image
+        image.addEventListener('dblclick', () => {
+            // Toggle the visibility of the image
+            if (image.style.display === 'none') {
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+        // Select the input field
+        const inputField = document.getElementById('myInput');
+
+        // Add a keydown event listener to the input field
+        inputField.addEventListener('keydown', (event) => {
+            // Log the key pressed to the console
+            console.log(`Key pressed: ${event.key}`);
+        });
+        // Select the element
+        const element = document.getElementById('myElement');
+
+        // Add a mouseout event listener to the element
+        element.addEventListener('mouseout', () => {
+            // Reset the background color of the element
+            element.style.backgroundColor = 'yellow';
+        });
+
+        // Optional: Add a mouseover event listener to change the background color
+        element.addEventListener('mouseover', () => {
+            element.style.backgroundColor = 'lightblue';
+        });
+        // Select the input field
+        const inputField1 = document.getElementById('myInput1');
+
+        // Add a keydown event listener to the input field
+        inputField.addEventListener('keydown', (event) => {
+            // Log the key pressed to the console
+            console.log(`Key pressed: ${event.key}`);
+        });
+        // Select the input field and paragraph elements
+        const inputField2 = document.getElementById('myInput2');
+        const displayParagraph = document.getElementById('displayParagraph');
+
+        // Add a keyup event listener to the input field
+        inputField.addEventListener('keyup', () => {
+            // Display the current value of the input field in the paragraph
+            displayParagraph.textContent = `Current value: ${inputField.value}`;
+        });
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the form data
+            const formData = new FormData(event.target);
+            const formEntries = Object.fromEntries(formData.entries());
+
+            // Log the form data to the console
+            console.log(formEntries);
+        });
+    </script>
+</body>
+</html>
